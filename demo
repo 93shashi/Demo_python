@@ -1,1 +1,27 @@
 print("Hii python")
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+
+Data = pd.read_csv(r'D:\shashi\files\Practice_data\environmental-remediation-sites.csv')
+
+Data.info(1)
+Data.dtypes
+type(Data)
+
+#data preprocessing and cleaning
+
+Data_null = [Data['Address2'].isnull().sum()]
+print(Data_null)
+Data.fillna(123)
+Data.isnull().sum()
+
+
+#data visualization
+plt.hist(Data['Program Number'])
+plt.show()
+plt.hist(Data['County'])
+plt.show()
+type(Data['County'])
+Data['County'] = Data['County'].astype('category')
+Data['County'].cat.categories
